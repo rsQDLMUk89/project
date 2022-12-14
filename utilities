@@ -1,0 +1,41 @@
+-- // Service Function
+getgenv().service = function(service)
+    return game:GetService(service)
+end
+
+-- // Self Variables
+getgenv().Workspace = service("Workspace")
+getgenv().ReplicatedStorage = service("ReplicatedStorage")
+getgenv().Players = service("Players")
+getgenv().LocalPlayer = Players.LocalPlayer
+getgenv().Backpack = LocalPlayer.Backpack
+getgenv().Character = LocalPlayer.Character
+LocalPlayer.CharacterAdded:Connect(function()
+    Character = LocalPlayer.Character
+end)
+getgenv().Mouse = LocalPlayer:GetMouse()
+getgenv().Camera = Workspace.CurrentCamera
+
+-- // Services
+getgenv().UserInputService = service("UserInputService")
+getgenv().TextService = service("TextService")
+getgenv().TweenService = service("TweenService")
+getgenv().RunService = service("RunService")
+getgenv().CoreGuiService = service("CoreGui")
+getgenv().TeleportService = service("TeleportService")
+getgenv().MarketplaceService = service("MarketplaceService")
+getgenv().HttpService = service("HttpService")
+
+-- // Local Information
+getgenv().LocalName = LocalPlayer.Name
+getgenv().LocalDisplay = LocalPlayer.DisplayName
+getgenv().LocalId = LocalPlayer.UserId
+getgenv().LocalImage = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. LocalId .. "&width=420&height=420&format=png%20t"
+
+-- // Asset
+getgenv().Asset = MarketplaceService:GetProductInfo(game.PlaceId)
+
+-- // Game Information
+getgenv().GameId = game.PlaceId
+getgenv().JobId = game.JobId
+getgenv().GameName = Asset.Name
